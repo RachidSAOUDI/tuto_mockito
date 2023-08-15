@@ -1,3 +1,5 @@
+package com.tutorials.mockito;
+
 public class StudentScoreUpdates {
   public IDatabase databaseImpl; 
    
