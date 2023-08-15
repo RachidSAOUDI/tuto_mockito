@@ -14,4 +14,34 @@ public class TestCalculator {
       // Assert
       Mockito.verify(mockDatabase, Mockito.times(1)).updateScores("student1", 220);
   }
+
+  @Test
+  public void calculateSumAndStore_withValidInput_shouldCalculateAndUpdateResultInDbV1(){
+     // Arrange
+      studentScores = new StudentScoreUpdates(mockDatabase);
+      int[] scores = {  60, 70, 90  };
+      Mockito.doNothing().when(mockDatabase).updateScores(anyString(), anyInt()); 
+   
+      // Act
+      studentScores.calculateSumAndStore("student1", scores); 
+   
+      // Assert
+      Mockito.verify(mockDatabase, Mockito.times(1)).updateScores("student1", 220);
+  }
+
+  @Test
+  public void calculateSumAndStore_withValidInput_shouldCalculateAndUpdateResultInDbV2(){
+     // Arrange
+      studentScores = new StudentScoreUpdates(mockDatabase);
+      int[] scores = {  60, 70, 90  };
+      Mockito.doNothing().when(mockDatabase).updateScores(anyString(), anyInt()); 
+   
+      // Act
+      studentScores.calculateSumAndStore("student1", scores); 
+   
+      // Assert
+      Mockito.verify(mockDatabase, Mockito.times(1)).updateScores("student1", 230);
+  }
+
+  
 }
